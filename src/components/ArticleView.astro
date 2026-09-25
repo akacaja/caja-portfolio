@@ -85,6 +85,8 @@ const homeHref = copy.lang === 'en' ? '/' : '/pt/';
   .headline {
     display: flex;
     justify-content: center;
+    margin-left: 216px;
+    margin-right: 216px;
     padding-top: 40px;
     padding-bottom: 40px;
   }
@@ -247,7 +249,19 @@ const homeHref = copy.lang === 'en' ? '/' : '/pt/';
     flex-wrap: wrap;
   }
 
+  @media (max-width: 1024px) {
+    .headline {
+      margin-left: 96px;
+      margin-right: 96px;
+    }
+  }
+
   @media (max-width: 768px) {
+    .headline {
+      margin-left: 0;
+      margin-right: 0;
+    }
+
     .contact-row {
       flex-direction: column;
       align-items: flex-start;
