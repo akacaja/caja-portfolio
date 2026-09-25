@@ -21,9 +21,6 @@ export interface ArticleCopy {
 
 export interface HomeCopy {
   lang: Lang;
-  langLabel: string;
-  otherLangLabel: string;
-  otherLangHref: string;
   name: string;
   tagline: string;
   bio: string;
@@ -47,9 +44,6 @@ const contactLinks = [
 export const home: Record<Lang, HomeCopy> = {
   en: {
     lang: 'en',
-    langLabel: 'EN',
-    otherLangLabel: 'PT',
-    otherLangHref: '/pt/',
     name: 'Carolina Cajazeira',
     tagline: 'Product Designer based in Brasil, working globally 🌎',
     bio: "For 9 years I've been simplifying complex systems across industries like fintech, telecom, environmental monitoring, and e-commerce. My work has reduced processes from days to seconds, eliminated operational bottlenecks, and accelerated product adoption. Currently, I lead the design of a server-driven UI platform at Bemobi Wave.",
@@ -106,9 +100,6 @@ export const home: Record<Lang, HomeCopy> = {
   },
   pt: {
     lang: 'pt',
-    langLabel: 'PT',
-    otherLangLabel: 'EN',
-    otherLangHref: '/',
     name: 'Carolina Cajazeira',
     tagline: 'Product designer brasileira, trabalhando globalmente 🌎',
     bio: 'Há 9 anos simplifico sistemas complexos em indústrias como fintech, telecom, monitoramento ambiental e e-commerce. O meu trabalho já reduziu processos de dias para segundos, eliminou gargalos operacionais e acelerou a adoção de produtos. Atualmente, lidero o design de uma plataforma de interfaces server-driven na Bemobi Wave.',

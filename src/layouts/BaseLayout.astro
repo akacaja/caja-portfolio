@@ -7,14 +7,13 @@ interface Props {
   lang: 'en' | 'pt';
   title: string;
   description: string;
-  langLabel: string;
-  otherLangLabel: string;
-  otherLangHref: string;
+  enHref: string;
+  ptHref: string;
   footerRole: string;
   footerClockSuffix: string;
 }
 
-const { lang, title, description, langLabel, otherLangLabel, otherLangHref, footerRole, footerClockSuffix } = Astro.props;
+const { lang, title, description, enHref, ptHref, footerRole, footerClockSuffix } = Astro.props;
 const homeHref = lang === 'en' ? '/' : '/pt/';
 ---
 
@@ -34,7 +33,7 @@ const homeHref = lang === 'en' ? '/' : '/pt/';
     />
   </head>
   <body>
-    <Header lang={lang} langLabel={langLabel} otherLangLabel={otherLangLabel} otherLangHref={otherLangHref} homeHref={homeHref} />
+    <Header lang={lang} enHref={enHref} ptHref={ptHref} homeHref={homeHref} />
     <main>
       <slot />
     </main>

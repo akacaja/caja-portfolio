@@ -1,20 +1,27 @@
 ---
 interface Props {
   lang: 'en' | 'pt';
-  langLabel: string;
-  otherLangLabel: string;
-  otherLangHref: string;
+  enHref: string;
+  ptHref: string;
   homeHref: string;
 }
-const { langLabel, otherLangLabel, otherLangHref, homeHref } = Astro.props;
+const { lang, enHref, ptHref, homeHref } = Astro.props;
 ---
 
 <header class="header">
   <a class="logo" href={homeHref} aria-label="Carolina Cajazeira — home">CAJÁ</a>
   <div class="lang-toggle" role="group" aria-label="Language">
-    <span class="lang-current" aria-current="true">{langLabel}</span>
+    {lang === 'en' ? (
+      <span class="lang-current" aria-current="true">EN</span>
+    ) : (
+      <a class="lang-other" href={enHref}>EN</a>
+    )}
     <span class="lang-sep" aria-hidden="true"></span>
-    <a class="lang-other" href={otherLangHref}>{otherLangLabel}</a>
+    {lang === 'pt' ? (
+      <span class="lang-current" aria-current="true">PT</span>
+    ) : (
+      <a class="lang-other" href={ptHref}>PT</a>
+    )}
   </div>
 </header>
 
