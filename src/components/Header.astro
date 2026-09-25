@@ -9,7 +9,9 @@ const { lang, enHref, ptHref, homeHref } = Astro.props;
 ---
 
 <header class="header">
-  <a class="logo" href={homeHref} aria-label="Carolina Cajazeira — home">CAJÁ</a>
+  <a class="logo" href={homeHref} aria-label="Carolina Cajazeira — home">
+    <img src="/logo.png" width="67" height="28" alt="CAJÁ" />
+  </a>
   <div class="lang-toggle" role="group" aria-label="Language">
     {lang === 'en' ? (
       <span class="lang-current" aria-current="true">EN</span>
@@ -35,10 +37,14 @@ const { lang, enHref, ptHref, homeHref } = Astro.props;
   }
 
   .logo {
-    font-family: var(--font-display);
-    font-size: 18px;
-    letter-spacing: 0.08em;
-    color: var(--color-text-strong);
+    display: flex;
+    align-items: center;
+  }
+
+  .logo img {
+    display: block;
+    height: 24px;
+    width: auto;
   }
 
   .lang-toggle {
