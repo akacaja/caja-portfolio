@@ -1,0 +1,76 @@
+---
+interface Detail {
+  label: string;
+  value: string;
+}
+interface Props {
+  details: Detail[];
+}
+const { details } = Astro.props;
+---
+
+<section class="project-details">
+  <div class="divider" aria-hidden="true"></div>
+  <div class="details-row">
+    {details.map((d) => (
+      <div class="detail">
+        <p class="detail-label">{d.label}</p>
+        <p class="detail-value">{d.value}</p>
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  .project-details {
+    width: 100%;
+    padding: 24px var(--page-padding) 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .divider {
+    height: 1px;
+    width: 100%;
+    background: var(--color-divider);
+  }
+
+  .details-row {
+    display: flex;
+    gap: 56px;
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .detail {
+    flex: 1 1 0;
+    min-width: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .detail-label {
+    margin: 0;
+    font-size: var(--text-label);
+    color: var(--color-text-muted);
+  }
+
+  .detail-value {
+    margin: 0;
+    font-weight: 500;
+    font-size: var(--text-button);
+    color: var(--color-text);
+  }
+
+  @media (max-width: 640px) {
+    .details-row {
+      flex-direction: column;
+      gap: 16px;
+    }
+    .detail {
+      min-width: 0;
+    }
+  }
+</style>

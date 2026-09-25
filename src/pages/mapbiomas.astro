@@ -1,0 +1,19 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CaseStudyView from '../components/CaseStudyView.astro';
+import { mapbiomas } from '../content/caseStudies';
+
+const copy = mapbiomas.en;
+---
+
+<BaseLayout
+  lang="en"
+  title={`${copy.title} — Carolina Cajazeira`}
+  description={copy.summary}
+  enHref="/mapbiomas"
+  ptHref="/pt/mapbiomas"
+  footerRole={copy.footerRole}
+  footerClockSuffix={copy.footerClockSuffix}
+>
+  <CaseStudyView copy={copy} />
+</BaseLayout>

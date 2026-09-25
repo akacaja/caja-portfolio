@@ -1,0 +1,48 @@
+---
+interface Props {
+  src?: string;
+  alt?: string;
+  accent?: 'blue' | 'green' | 'sage';
+}
+const { src, alt = '', accent = 'blue' } = Astro.props;
+---
+
+<div class="image-block">
+  {src ? (
+    <img src={src} alt={alt} loading="lazy" />
+  ) : (
+    <div class:list={['placeholder', `placeholder--${accent}`]} aria-hidden="true"></div>
+  )}
+</div>
+
+<style>
+  .image-block {
+    width: 100%;
+    padding: 40px var(--page-padding);
+  }
+
+  .image-block img,
+  .placeholder {
+    width: 100%;
+    aspect-ratio: 1192 / 670;
+    border-radius: var(--radius-md);
+    object-fit: cover;
+    display: block;
+  }
+
+  .placeholder--blue {
+    background: var(--color-accent-blue);
+  }
+  .placeholder--green {
+    background: var(--color-accent-green);
+  }
+  .placeholder--sage {
+    background: var(--color-accent-sage);
+  }
+
+  @media (max-width: 640px) {
+    .image-block {
+      padding: 24px var(--page-padding);
+    }
+  }
+</style>

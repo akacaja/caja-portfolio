@@ -1,0 +1,104 @@
+---
+interface Props {
+  label: string;
+  divider?: boolean;
+  bottomPadding?: boolean;
+}
+const { label, divider = true, bottomPadding = true } = Astro.props;
+---
+
+<section class:list={['split-section', { 'split-section--no-bottom-padding': !bottomPadding }]}>
+  {divider && <div class="split-divider" aria-hidden="true"></div>}
+  <div class="split-row">
+    <p class="split-label">{label}</p>
+    <div class="split-content">
+      <slot />
+    </div>
+  </div>
+</section>
+
+<style>
+  .split-section {
+    width: 100%;
+    padding: 40px var(--page-padding);
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .split-section--no-bottom-padding {
+    padding-bottom: 0;
+  }
+
+  .split-divider {
+    height: 1px;
+    width: 100%;
+    background: var(--color-divider);
+  }
+
+  .split-row {
+    display: flex;
+    gap: 56px;
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .split-label {
+    flex-shrink: 0;
+    width: 320px;
+    margin: 0;
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: var(--text-split-label);
+    line-height: 1.3;
+    color: var(--color-text);
+  }
+
+  .split-content {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+
+  .split-content :global(p) {
+    margin: 0;
+    font-size: var(--text-body);
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+    color: var(--color-text);
+  }
+
+  .split-content :global(h3) {
+    margin: 0 0 16px;
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: var(--text-insight-title);
+    line-height: 1.3;
+    letter-spacing: -0.02em;
+    color: var(--color-text);
+  }
+
+  .split-content :global(ul) {
+    margin: 0;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .split-content :global(li) {
+    font-size: var(--text-body);
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+    color: var(--color-text);
+  }
+
+  @media (max-width: 768px) {
+    .split-row {
+      flex-direction: column;
+      gap: 12px;
+    }
+    .split-label {
+      width: auto;
+    }
+  }
+</style>

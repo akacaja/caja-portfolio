@@ -30,6 +30,10 @@
   --text-label-sm: 12px;
   --text-button: 16px;
   --text-footer: 14px;
+  --text-case-title: 40px;
+  --text-split-label: 20px;
+  --text-insight-title: 32px;
+  --text-body: 18px;
 
   /* Layout */
   --content-max-width: 1192px;
@@ -49,6 +53,8 @@
     --text-name: 28px;
     --text-section-title: 24px;
     --text-card-title: 21px;
+    --text-case-title: 32px;
+    --text-insight-title: 26px;
   }
 }
 
@@ -60,6 +66,10 @@
     --text-section-title: 21px;
     --text-card-title: 19px;
     --text-card-body: 16px;
+    --text-case-title: 26px;
+    --text-split-label: 18px;
+    --text-insight-title: 22px;
+    --text-body: 16px;
   }
 }
 

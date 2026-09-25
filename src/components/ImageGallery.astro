@@ -1,0 +1,73 @@
+---
+interface Props {
+  images?: string[];
+  alt?: string;
+  accent?: 'blue' | 'green' | 'sage';
+}
+const { images = [], alt = '', accent = 'blue' } = Astro.props;
+const slots = images.length ? images : [undefined, undefined, undefined];
+---
+
+<div class="gallery">
+  {slots.map((src) => (
+    src ? (
+      <img src={src} alt={alt} loading="lazy" />
+    ) : (
+      <div class:list={['placeholder', `placeholder--${accent}`]} aria-hidden="true"></div>
+    )
+  ))}
+</div>
+
+<style>
+  .gallery {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    justify-content: center;
+    padding: 40px var(--page-padding);
+    width: 100%;
+  }
+
+  .gallery img,
+  .placeholder {
+    flex: 1 1 0;
+    min-width: 0;
+    aspect-ratio: 370 / 556;
+    border-radius: var(--radius-md);
+    object-fit: cover;
+    display: block;
+  }
+
+  .placeholder--blue {
+    background: var(--color-accent-blue);
+  }
+  .placeholder--green {
+    background: var(--color-accent-green);
+  }
+  .placeholder--sage {
+    background: var(--color-accent-sage);
+  }
+
+  @media (max-width: 768px) {
+    .gallery {
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .gallery img,
+    .placeholder {
+      flex: 1 1 calc(50% - 8px);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .gallery {
+      flex-direction: column;
+      padding: 24px var(--page-padding);
+    }
+    .gallery img,
+    .placeholder {
+      flex: 1 1 auto;
+      width: 100%;
+    }
+  }
+</style>

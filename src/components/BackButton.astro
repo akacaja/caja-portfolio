@@ -1,0 +1,31 @@
+---
+interface Props {
+  href: string;
+  label: string;
+}
+const { href, label } = Astro.props;
+---
+
+<a class="back-button" href={href}>
+  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M13 8H3" />
+    <path d="m7 4-4 4 4 4" />
+  </svg>
+  <span>{label}</span>
+</a>
+
+<style>
+  .back-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--color-text-muted);
+    font-weight: 500;
+    font-size: var(--text-button);
+    transition: color 0.15s ease;
+  }
+
+  .back-button:hover {
+    color: var(--color-text);
+  }
+</style>
