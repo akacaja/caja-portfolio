@@ -11,13 +11,14 @@ interface Props {
   right: MediaItem;
   alt?: string;
   accent?: 'blue' | 'green' | 'sage';
+  bordered?: boolean;
 }
 
-const { left, right, alt = '', accent = 'blue' } = Astro.props;
+const { left, right, alt = '', accent = 'blue', bordered = false } = Astro.props;
 const items = [left, right];
 ---
 
-<div class="dual-media">
+<div class:list={['dual-media', { 'dual-media--bordered': bordered }]}>
   {items.map((item) => (
     item.video ? (
       <video poster={item.poster} autoplay loop muted playsinline preload="metadata" aria-label={alt}>
@@ -51,6 +52,12 @@ const items = [left, right];
     border-radius: var(--radius-md);
     object-fit: cover;
     display: block;
+  }
+
+  .dual-media--bordered video {
+    border-radius: calc(var(--radius-md) + 8px);
+    outline: 4px solid #fff;
+    outline-offset: -2px;
   }
 
   .placeholder--blue {
