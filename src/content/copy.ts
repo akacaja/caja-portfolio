@@ -7,7 +7,7 @@ export interface ProjectCopy {
   year: string;
   title: string;
   description: string;
-  thumb: 'mapbiomas' | 'questrade' | 'variant3';
+  thumb: 'mapbiomas' | 'drip' | 'documents';
   accent: 'blue' | 'green' | 'sage';
 }
 
@@ -68,7 +68,7 @@ export const home: Record<Lang, HomeCopy> = {
         title: 'Automating a two-day operational process into an autonomous experience completed in seconds',
         description:
           'I led the automation of the dividend reinvestment program enrollment, transforming a manual process into a flow the client completes on their own. In the first 3 months, 55% of eligible clients enrolled and the solution freed up about 6 hours per day from the operations team.',
-        thumb: 'questrade',
+        thumb: 'drip',
         accent: 'green',
       },
       {
@@ -79,7 +79,7 @@ export const home: Record<Lang, HomeCopy> = {
         title: "Establishing the navigation pattern for self-service tabs in Questrade's app",
         description:
           'I designed access to tax documents in QuestMobile, including upload, search, and statement viewing. The delivery was split into phases to ensure clients had access to critical documents before Canadian tax season. The project also established the replicable navigation pattern for the remaining self-service tabs in the app.',
-        thumb: 'variant3',
+        thumb: 'documents',
         accent: 'sage',
       },
     ],
@@ -124,7 +124,7 @@ export const home: Record<Lang, HomeCopy> = {
         title: 'Automatizando um processo operacional de dois dias em uma experiência autônoma concluída em segundos',
         description:
           'Liderei a automatização da inscrição no programa de reinvestimento de dividendos, transformando um processo manual em um fluxo que o cliente conclui por conta própria. Nos primeiros 3 meses, 55% dos clientes elegíveis aderiram e a solução liberou cerca de 6 horas por dia do time operacional.',
-        thumb: 'questrade',
+        thumb: 'drip',
         accent: 'green',
       },
       {
@@ -135,7 +135,7 @@ export const home: Record<Lang, HomeCopy> = {
         title: 'Estabelecendo o padrão de navegação para as abas de autoatendimento no app da Questrade',
         description:
           'Projetei o acesso a documentos fiscais no QuestMobile, incluindo upload, busca e consulta de comprovantes. A entrega foi dividida em fases para garantir que o cliente tivesse acesso aos documentos críticos antes da temporada fiscal canadense. O projeto também estabeleceu o padrão de navegação replicável para as demais abas de autoatendimento do app.',
-        thumb: 'variant3',
+        thumb: 'documents',
         accent: 'sage',
       },
     ],

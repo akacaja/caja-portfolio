@@ -9,7 +9,7 @@ const { article, href = '#' } = Astro.props;
 ---
 
 <a class="article-card" href={href}>
-  <div class="thumb" aria-hidden="true"></div>
+  <img class="thumb" src="/assets/thumb-article.png" alt="" aria-hidden="true" loading="lazy" />
   <div class="info">
     <div class="labels">
       <span>{article.readTime}</span>
@@ -36,6 +36,7 @@ const { article, href = '#' } = Astro.props;
     flex-shrink: 0;
     width: 220px;
     height: 140px;
+    object-fit: cover;
     border-radius: var(--radius-lg);
     background: var(--color-surface);
     border: 1px solid var(--color-divider);

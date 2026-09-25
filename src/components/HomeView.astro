@@ -15,7 +15,7 @@ const projectHrefPrefix = copy.lang === 'en' ? '/' : '/pt/';
 
 <section class="headline">
   <div class="avatar">
-    <div class="avatar-frame" aria-hidden="true"></div>
+    <img class="avatar-frame" src="/assets/photo.png" alt={copy.name} width="152" height="226" />
   </div>
   <div class="intro">
     <div class="name-block">
@@ -77,12 +77,14 @@ const projectHrefPrefix = copy.lang === 'en' ? '/' : '/pt/';
   }
 
   .avatar-frame {
+    display: block;
     width: 152px;
     height: 226px;
+    object-fit: cover;
     border-radius: 40px;
     border: 8px solid var(--color-surface);
     box-shadow: 0 0 58px 8px rgba(0, 0, 0, 0.05);
-    background: linear-gradient(160deg, var(--color-accent-blue), var(--color-accent-sage));
+    background: var(--color-surface);
   }
 
   .intro {
