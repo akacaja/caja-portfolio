@@ -1,14 +1,22 @@
 ---
 interface Props {
   src?: string;
+  video?: string;
+  videoWebm?: string;
+  poster?: string;
   alt?: string;
   accent?: 'blue' | 'green' | 'sage';
 }
-const { src, alt = '', accent = 'blue' } = Astro.props;
+const { src, video, videoWebm, poster, alt = '', accent = 'blue' } = Astro.props;
 ---
 
 <div class="image-block">
-  {src ? (
+  {video ? (
+    <video poster={poster} autoplay loop muted playsinline preload="metadata" aria-label={alt}>
+      {videoWebm && <source src={videoWebm} type="video/webm" />}
+      <source src={video} type="video/mp4" />
+    </video>
+  ) : src ? (
     <img src={src} alt={alt} loading="lazy" />
   ) : (
     <div class:list={['placeholder', `placeholder--${accent}`]} aria-hidden="true"></div>
@@ -22,6 +30,7 @@ const { src, alt = '', accent = 'blue' } = Astro.props;
   }
 
   .image-block img,
+  .image-block video,
   .placeholder {
     width: 100%;
     aspect-ratio: 1192 / 670;

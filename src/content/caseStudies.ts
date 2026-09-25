@@ -38,6 +38,9 @@ export interface CaseStudyCopy {
   heroImage3?: string;
   insight3: InsightCopy;
   heroImage4?: string;
+  heroVideo4?: string;
+  heroVideo4Webm?: string;
+  heroVideo4Poster?: string;
   results: ResultsCopy;
   moreProjectsTitle: string;
   relatedProjects: ProjectCopy[];
@@ -58,6 +61,7 @@ export const mapbiomas: Record<Lang, CaseStudyCopy> = {
     summary:
       "MapBiomas is a leading initiative in land use and land cover mapping in Brazil. Meu MapBiomas is the product that gives organizations the autonomy to build their own analyses from this data, setting up dashboards with custom branding, territories of interest, and data layers to monitor. This unlocked a demand that led Meu MapBiomas to hit its annual adoption goal in five days.",
     accent: 'blue',
+    heroImage1: '/assets/mapbiomas/featured-image.png',
     details: [
       { label: 'My role', value: 'Product Designer' },
       { label: 'Scope', value: 'End-to-end, from discovery to delivery' },
@@ -82,21 +86,31 @@ export const mapbiomas: Record<Lang, CaseStudyCopy> = {
       label: 'Three key insights',
       body: '01. Fewer decisions per screen, more clarity for a non-technical audience 02. Real-time feedback that builds credibility at every step 03. A scope constraint that led to a simpler interface to use and maintain',
     },
+    heroImage2: '/assets/mapbiomas/ui-overview.png',
     insight1: {
       label: 'Insight 01',
       title: 'Fewer decisions per screen, more clarity for a non-technical audience',
       body: "The onboarding was designed to reduce the cognitive load of a flow that requires multiple decisions: branding setup, territory selection, data layers, and legend configuration. By designing a progressive form with one decision per step, optional steps, and free navigation to go back, users can stay focused on the current task while the complexity behind the dashboard setup stays hidden from the platform's target audience of non-technical users.",
     },
+    gallery: [
+      '/assets/mapbiomas/onboarding-step-2.png',
+      '/assets/mapbiomas/onboarding-step-3.png',
+      '/assets/mapbiomas/onboarding-step-4.png',
+    ],
     insight2: {
       label: 'Insight 02',
       title: 'Real-time feedback that builds credibility at every step',
       body: "As the user configures the dashboard, the platform renders a real-time preview using actual MapBiomas data. Every choice of territory, data layer, or time period is immediately reflected on screen, providing visibility into what's being built and confidence in data quality before finalizing. To sustain this without impacting performance, we pre-processed the geoprocessing data from Google Earth Engine.",
     },
+    heroImage3: '/assets/mapbiomas/insight-2.png',
     insight3: {
       label: 'Insight 03',
       title: 'A scope constraint that led to a simpler interface to use and maintain',
       body: "With three months to go from zero to production, building separate flows for creating a new dashboard and editing an existing one wasn't feasible. The short-term solution was to design a single interface that serves both moments. In the end, what started as a way to meet a tight deadline proved strong enough to be adopted as the permanent solution, simplifying maintenance and giving users a single mental model for creating and editing.",
     },
+    heroVideo4: '/assets/mapbiomas/editing-flow.mp4',
+    heroVideo4Webm: '/assets/mapbiomas/editing-flow.webm',
+    heroVideo4Poster: '/assets/mapbiomas/editing-flow-poster.jpg',
     results: {
       label: 'Results',
       items: [
@@ -122,6 +136,7 @@ export const mapbiomas: Record<Lang, CaseStudyCopy> = {
     summary:
       'O MapBiomas é referência em mapeamento do uso e cobertura da terra no Brasil. O Meu MapBiomas é o produto da iniciativa que dá às organizações autonomia para criar suas próprias análises a partir desses dados, montando painéis com personalização visual, territórios de interesse e camadas a monitorar. Isso revelou uma demanda que levou o Meu MapBiomas a bater a meta de adoção do ano em cinco dias.',
     accent: 'blue',
+    heroImage1: '/assets/mapbiomas/featured-image.png',
     details: [
       { label: 'Meu papel', value: 'Product Designer' },
       { label: 'Escopo', value: 'Da descoberta à entrega, ponta a ponta' },
@@ -146,21 +161,31 @@ export const mapbiomas: Record<Lang, CaseStudyCopy> = {
       label: 'Três insights principais',
       body: '01. Menos decisões por tela e mais clareza para um público não-técnico 02. Feedback em tempo real, que garante credibilidade a cada passo 03. Uma restrição de escopo levou a uma interface mais simples de usar e manter',
     },
+    heroImage2: '/assets/mapbiomas/ui-overview.png',
     insight1: {
       label: 'Insight 01',
       title: 'Menos decisões por tela e mais clareza para um público não-técnico',
       body: 'O onboarding foi desenhado para reduzir a carga cognitiva de um fluxo que exige várias decisões: definição da identidade visual, seleção de territórios, camadas de dados e configuração de legendas. Ao projetar um formulário progressivo com uma decisão por vez, passos opcionais e navegação livre para voltar, é possível manter o foco na tarefa atual e reduzir a complexidade por trás do fluxo de configuração para o público-alvo da plataforma, formado por pessoas não técnicas.',
     },
+    gallery: [
+      '/assets/mapbiomas/onboarding-step-2.png',
+      '/assets/mapbiomas/onboarding-step-3.png',
+      '/assets/mapbiomas/onboarding-step-4.png',
+    ],
     insight2: {
       label: 'Insight 02',
       title: 'Feedback em tempo real, que garante credibilidade a cada passo',
       body: 'À medida que o usuário configura o dashboard, a plataforma monta uma prévia em tempo real com os dados reais do MapBiomas. Cada escolha de território, camada ou período se reflete imediatamente na tela, dando visibilidade do que está sendo construído e confiança na qualidade dos dados antes mesmo de finalizar. Para sustentar isso sem pesar na performance e garantir o preview, pré-processamos os dados de geoprocessamento vindos do Google Earth Engine.',
     },
+    heroImage3: '/assets/mapbiomas/insight-2.png',
     insight3: {
       label: 'Insight 03',
       title: 'Uma restrição de escopo levou a uma interface mais simples de usar e manter',
       body: 'Com três meses para ir do zero à produção, criar fluxos específicos para configurar um dashboard novo e editar um já existente não era viável. A solução de curto prazo foi criar uma interface única que serve aos dois momentos. No fim, o que nasceu para viabilizar a versão 1 em um prazo curto se provou forte o suficiente para ser adotada como definitiva, simplificando a manutenção e dando ao usuário um único modelo mental para criar e editar.',
     },
+    heroVideo4: '/assets/mapbiomas/editing-flow.mp4',
+    heroVideo4Webm: '/assets/mapbiomas/editing-flow.webm',
+    heroVideo4Poster: '/assets/mapbiomas/editing-flow-poster.jpg',
     results: {
       label: 'Resultados',
       items: [
