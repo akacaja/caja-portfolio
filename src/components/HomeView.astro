@@ -192,7 +192,10 @@ const projectHrefPrefix = copy.lang === 'en' ? '/' : '/pt/';
 
   @media (max-width: 480px) {
     .contact-items {
-      flex-direction: column;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      gap: 12px;
     }
   }
 </style>
