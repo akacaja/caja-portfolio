@@ -6,20 +6,22 @@ interface Props {
   poster?: string;
   alt?: string;
   accent?: 'blue' | 'green' | 'sage';
+  aspectRatio?: string;
 }
-const { src, video, videoWebm, poster, alt = '', accent = 'blue' } = Astro.props;
+const { src, video, videoWebm, poster, alt = '', accent = 'blue', aspectRatio } = Astro.props;
+const mediaStyle = aspectRatio ? `aspect-ratio: ${aspectRatio}` : undefined;
 ---
 
 <div class="image-block">
   {video ? (
-    <video poster={poster} autoplay loop muted playsinline preload="metadata" aria-label={alt}>
+    <video poster={poster} style={mediaStyle} autoplay loop muted playsinline preload="metadata" aria-label={alt}>
       {videoWebm && <source src={videoWebm} type="video/webm" />}
       <source src={video} type="video/mp4" />
     </video>
   ) : src ? (
-    <img src={src} alt={alt} loading="lazy" />
+    <img src={src} alt={alt} style={mediaStyle} loading="lazy" />
   ) : (
-    <div class:list={['placeholder', `placeholder--${accent}`]} aria-hidden="true"></div>
+    <div class:list={['placeholder', `placeholder--${accent}`]} style={mediaStyle} aria-hidden="true"></div>
   )}
 </div>
 

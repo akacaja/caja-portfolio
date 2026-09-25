@@ -34,6 +34,8 @@ export interface CaseStudyCopy {
   heroImage2?: string;
   insight1: InsightCopy;
   gallery?: string[];
+  insight1Image?: string;
+  insight1ImageAspectRatio?: string;
   insight2: InsightCopy;
   heroImage3?: string;
   insight3: InsightCopy;
@@ -196,6 +198,147 @@ export const mapbiomas: Record<Lang, CaseStudyCopy> = {
     },
     moreProjectsTitle: 'Outros projetos',
     relatedProjects: [home.pt.projects[1], home.pt.projects[2]],
+    contactTitle: home.pt.contactTitle,
+    contact: home.pt.contact,
+    footerRole: home.pt.footerRole,
+    footerClockSuffix: home.pt.footerClockSuffix,
+  },
+};
+
+export const drip: Record<Lang, CaseStudyCopy> = {
+  en: {
+    lang: 'en',
+    backLabel: 'Back to Index',
+    title: 'Automating a two-day operational process into an autonomous experience completed in seconds',
+    client: 'Questrade',
+    category: 'Fintech',
+    year: '2025',
+    summary:
+      "Questrade is Canada's largest independent online brokerage, managing billions in assets. In this project, I led the design of the dividend reinvestment program automation, which eliminated the operations team's manual work and reduced processing time from 2 business days to 8 seconds.",
+    accent: 'green',
+    heroImage1: '/assets/drip/featured-image.png',
+    details: [
+      { label: 'My role', value: 'Product Designer' },
+      { label: 'Scope', value: 'End-to-end, from discovery to delivery' },
+      { label: 'Team', value: 'Product Managers and developers' },
+    ],
+    problem: {
+      label: 'The problem',
+      body: 'The Dividend Reinvestment Program (DRIP) allows clients to use received dividends to automatically purchase more shares. At Questrade, enrolling a client in DRIP involved a PDF, manual approval from 3 operational teams, and a 2 business day wait, consuming about 6 hours per day of operations. Meanwhile, competitors like Wealthsimple and Robinhood already offered the same process 100% digitally, completed in minutes.',
+    },
+    solution: {
+      label: 'The solution',
+      body: 'I redesigned enrollment as a self-service flow the client completes in seconds, without PDF forms or manual approval. Beyond solving the operational bottleneck, the new experience lets users view, manage, and change their enrollment at any time, something no direct competitor offered at the time.',
+    },
+    impact: {
+      label: 'The impact',
+      body: 'In the first 3 months after launch, 55% of eligible clients enrolled in the program. Enrollment, which previously took 2 business days, was now completed in 8 seconds, and the operations team recovered about 6 hours per day previously spent on manual approvals.',
+    },
+    keyInsightsSummary: {
+      label: 'Three key insights',
+      body: '01. From operational bottleneck to competitive advantage, the research that redefined the project scope 02. The ideal experience as the starting point for the new API 03. A technical limitation can work in favor of the experience when approached strategically',
+    },
+    heroImage2: '/assets/drip/project-snapshot.png',
+    insight1: {
+      label: 'Insight 01',
+      title: 'From operational bottleneck to competitive advantage, the research that redefined the project scope',
+      body: 'An internal mapping revealed the bottleneck that became our starting point: about 6 hours per day were dedicated by the operations team to manually processing DRIP enrollments. It wasn\'t clear yet, however, how the client perceived this process. On Reddit, I found comments describing the experience as "archaic", and some clients reported giving up on enrolling new assets just because of the effort involved. This initial research led me to recruit 20 users who invested through both Questrade and competitors, to hear from people who had experienced the difference between manual and digital. The findings redefined the project scope by highlighting the need to digitize the process and revealing users\' interest in controlling reinvestment at a granular level, choosing which stocks to reinvest in each account they held, something no competitor offered.',
+    },
+    insight1Image: '/assets/drip/reddit-comments.png',
+    insight1ImageAspectRatio: '3576 / 2933',
+    insight2: {
+      label: 'Insight 02',
+      title: 'The ideal experience as the starting point for the new API',
+      body: "I mapped the 11 steps distributed across 3 operational teams behind the 2-day wait and discovered that the bottleneck wasn't the analysis itself, but the request queue and manual rework with spreadsheets. This discovery changed the conversation with engineering, because instead of digitizing the existing flow, we decided that the new API requirements should start from the experience we wanted to deliver. This meant giving the user visibility and ongoing control of their enrollment, which required building a single source of truth per asset and per user, something that didn't exist in the legacy system. It was this requirement that unlocked both continuous management and automatic enrollment of new assets.",
+    },
+    heroImage3: '/assets/drip/previous-journey.png',
+    insight3: {
+      label: 'Insight 03',
+      title: 'A technical limitation can work in favor of the experience when approached strategically',
+      body: 'The system required that DRIP enrollment cover all assets in the account at once, a strategy to enable automatic migration of users already registered in the legacy system. Initially, this seemed like a blocker for offering the individual asset control that research revealed as an opportunity. But when I looked at usage data, I found that 84% of the user base already enrolled all their assets in DRIP, meaning this requirement was, in practice, the default most users followed. From there, I redesigned the flow so that the technical limitation worked in favor of the experience, combining the granular customization users asked for, the continuous management from the new API, and a default aligned with actual behavior.',
+    },
+    heroVideo4: '/assets/drip/new-journey.mp4',
+    heroVideo4Webm: '/assets/drip/new-journey.webm',
+    heroVideo4Poster: '/assets/drip/new-journey-poster.jpg',
+    results: {
+      label: 'Results',
+      items: [
+        'From 2 business days to 8 seconds in a self-service enrollment process, without going through any team.',
+        '55% conversion in 3 months for a feature that was previously avoided due to the effort of the manual process.',
+        '~6h/day freed from operations by eliminating manual approval.',
+      ],
+    },
+    moreProjectsTitle: 'More projects',
+    relatedProjects: [home.en.projects[0], home.en.projects[2]],
+    contactTitle: home.en.contactTitle,
+    contact: home.en.contact,
+    footerRole: home.en.footerRole,
+    footerClockSuffix: home.en.footerClockSuffix,
+  },
+  pt: {
+    lang: 'pt',
+    backLabel: 'Voltar para Início',
+    title: 'Automatizando um processo operacional de dois dias em uma experiência autônoma concluída em segundos',
+    client: 'Questrade',
+    category: 'Fintech',
+    year: '2025',
+    summary:
+      'A Questrade é a maior corretora online independente do Canadá, gerenciando bilhões em ativos como alternativa aos bancos tradicionais. Nesse projeto, liderei o design da automatização do programa de reinvestimento de dividendos, que eliminou o trabalho manual do time operacional e reduziu o tempo de processamento de 2 dias úteis para 8 segundos.',
+    accent: 'green',
+    heroImage1: '/assets/drip/featured-image.png',
+    details: [
+      { label: 'Meu papel', value: 'Product Designer' },
+      { label: 'Escopo', value: 'Da descoberta à entrega, ponta a ponta' },
+      { label: 'Time', value: 'Product Managers e desenvolvedores' },
+    ],
+    problem: {
+      label: 'O problema',
+      body: 'O Reinvestimento de Dividendos (DRIP) é um programa que permite ao cliente usar dividendos recebidos para comprar mais ações automaticamente. Na Questrade, inscrever um cliente no DRIP envolvia PDF, aprovação manual de 3 times operacionais e 2 dias úteis de espera, consumindo cerca de 6 horas por dia da operação. Enquanto isso, concorrentes como Wealthsimple e Robinhood já ofereciam o mesmo processo 100% digital, concluído em minutos.',
+    },
+    solution: {
+      label: 'A solução',
+      body: 'Redesenhei a inscrição como um fluxo self-service que o cliente conclui em segundos, sem formulários em PDF nem aprovação manual. Além de resolver o gargalo operacional, a nova experiência permite que o usuário veja, gerencie e altere sua inscrição a qualquer momento, algo que nenhum concorrente direto oferecia na época.',
+    },
+    impact: {
+      label: 'O impacto',
+      body: 'Nos primeiros 3 meses após o lançamento, 55% dos clientes elegíveis se inscreveram no programa. A inscrição, que antes levava 2 dias úteis, passou a ser concluída em 8 segundos, e o time operacional recuperou cerca de 6 horas por dia que antes eram gastas em aprovações manuais.',
+    },
+    keyInsightsSummary: {
+      label: 'Três insights principais',
+      body: '01. Do gargalo operacional ao diferencial competitivo: a pesquisa que redefiniu o escopo do projeto 02. A experiência ideal como ponto de partida para a nova API 03. Uma limitação técnica pode jogar a favor da experiência quando olhada estrategicamente',
+    },
+    heroImage2: '/assets/drip/project-snapshot.png',
+    insight1: {
+      label: 'Insight 01',
+      title: 'Do gargalo operacional ao diferencial competitivo: a pesquisa que redefiniu o escopo do projeto',
+      body: 'Um mapeamento interno revelou o gargalo que foi nosso ponto de partida: cerca de 6 horas por dia eram dedicadas pelo time operacional para processar inscrições do DRIP manualmente. Ainda não estava claro, porém, como o cliente percebia esse processo. No Reddit, encontrei comentários que descreviam a experiência como "arcaica", e alguns clientes relatavam ter desistido de inscrever novos ativos só pelo esforço envolvido. Essa pesquisa inicial me levou a recrutar 20 usuários que investiam pela Questrade e por concorrentes ao mesmo tempo, para ouvir quem vivia a diferença entre o manual e o digital. O resultado definiu o escopo do projeto ao evidenciar a necessidade de digitalizar o processo e revelar o interesse dos usuários em controlar o reinvestimento de forma granular, escolhendo quais ações reinvestir em cada conta que possuíam, algo que nenhum concorrente oferecia.',
+    },
+    insight1Image: '/assets/drip/reddit-comments.png',
+    insight1ImageAspectRatio: '3576 / 2933',
+    insight2: {
+      label: 'Insight 02',
+      title: 'A experiência ideal como ponto de partida para a nova API',
+      body: 'Mapeei as 11 etapas distribuídas entre 3 times operacionais por trás dos 2 dias de espera e descobri que o gargalo não era a análise em si, mas a fila de solicitações e o retrabalho manual com planilhas. Essa descoberta mudou a conversa com engenharia, porque em vez de digitalizar o fluxo existente, decidimos que os requisitos da nova API deveriam partir da experiência que queríamos entregar. Isso significava dar ao usuário visibilidade e controle contínuo da sua inscrição, o que exigia construir uma fonte única da verdade por ativo e por usuário, algo que não existia no sistema legado. Foi esse requisito que destravou tanto o gerenciamento contínuo quanto a inscrição automática de novos ativos.',
+    },
+    heroImage3: '/assets/drip/previous-journey.png',
+    insight3: {
+      label: 'Insight 03',
+      title: 'Uma limitação técnica pode jogar a favor da experiência quando olhada estrategicamente',
+      body: 'O sistema exigia que a inscrição no DRIP cobrisse todos os ativos da conta de uma vez, uma estratégia para possibilitar a migração automática dos usuários já cadastrados no sistema antigo. Inicialmente, isso parecia um bloqueio para oferecer o controle individual por ativo que a pesquisa revelou como oportunidade. Mas, ao olhar para os dados de uso, descobri que 84% da base já inscrevia todos os ativos no DRIP, o que significava que essa exigência já era o default que a maioria seguia. A partir disso, redesenhei o fluxo para que a limitação técnica funcionasse a favor da experiência, unindo a customização granular que os usuários pediam, o gerenciamento contínuo da nova API e um default alinhado ao comportamento real.',
+    },
+    heroVideo4: '/assets/drip/new-journey.mp4',
+    heroVideo4Webm: '/assets/drip/new-journey.webm',
+    heroVideo4Poster: '/assets/drip/new-journey-poster.jpg',
+    results: {
+      label: 'Resultados',
+      items: [
+        'De 2 dias úteis para 8 segundos em um processo de inscrição self-service, sem passar por nenhum time.',
+        '55% de conversão em 3 meses em uma funcionalidade que antes era evitada pelo esforço do processo manual.',
+        '~6h/dia liberadas da operação com a eliminação da aprovação manual.',
+      ],
+    },
+    moreProjectsTitle: 'Outros projetos',
+    relatedProjects: [home.pt.projects[0], home.pt.projects[2]],
     contactTitle: home.pt.contactTitle,
     contact: home.pt.contact,
     footerRole: home.pt.footerRole,

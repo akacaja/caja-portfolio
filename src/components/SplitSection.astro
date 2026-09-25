@@ -2,12 +2,16 @@
 interface Props {
   label: string;
   divider?: boolean;
-  bottomPadding?: boolean;
+  bottomPadding?: boolean | number;
 }
 const { label, divider = true, bottomPadding = true } = Astro.props;
+const customBottomPadding = typeof bottomPadding === 'number' ? bottomPadding : undefined;
 ---
 
-<section class:list={['split-section', { 'split-section--no-bottom-padding': !bottomPadding }]}>
+<section
+  class:list={['split-section', { 'split-section--no-bottom-padding': bottomPadding === false }]}
+  style={customBottomPadding !== undefined ? `padding-bottom: ${customBottomPadding}px` : undefined}
+>
   {divider && <div class="split-divider" aria-hidden="true"></div>}
   <div class="split-row">
     <p class="split-label">{label}</p>

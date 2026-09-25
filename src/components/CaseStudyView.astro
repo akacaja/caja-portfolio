@@ -62,7 +62,16 @@ const projectHrefPrefix = homeHref;
   <p>{copy.insight1.body}</p>
 </SplitSection>
 
-<ImageGallery images={copy.gallery} alt={copy.insight1.title} accent={copy.accent} />
+{copy.gallery ? (
+  <ImageGallery images={copy.gallery} alt={copy.insight1.title} accent={copy.accent} />
+) : copy.insight1Image ? (
+  <ImageBlock
+    src={copy.insight1Image}
+    aspectRatio={copy.insight1ImageAspectRatio}
+    alt={copy.insight1.title}
+    accent={copy.accent}
+  />
+) : null}
 
 <SplitSection label={copy.insight2.label}>
   <h3>{copy.insight2.title}</h3>
@@ -85,7 +94,7 @@ const projectHrefPrefix = homeHref;
   accent={copy.accent}
 />
 
-<SplitSection label={copy.results.label} bottomPadding={false}>
+<SplitSection label={copy.results.label} bottomPadding={120}>
   <ul>
     {copy.results.items.map((item) => (
       <li>{item}</li>
