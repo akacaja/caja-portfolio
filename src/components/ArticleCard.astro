@@ -28,8 +28,17 @@ const { article, href = '#' } = Astro.props;
     display: flex;
     align-items: center;
     gap: 48px;
-    width: 100%;
-    padding: 40px 0;
+    width: calc(100% + 32px);
+    margin: 0 -16px;
+    padding: 40px 16px;
+    background-color: transparent;
+    transition: background-color 0.15s ease;
+  }
+
+  .article-card:hover,
+  .article-card:active,
+  .article-card:focus-visible {
+    background-color: var(--color-surface-hover);
   }
 
   .thumb {

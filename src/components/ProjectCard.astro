@@ -36,6 +36,14 @@ const { project, href } = Astro.props;
     align-items: flex-start;
     padding: 40px 16px;
     width: 100%;
+    background-color: transparent;
+    transition: background-color 0.15s ease;
+  }
+
+  .project-card:hover,
+  .project-card:active,
+  .project-card:focus-visible {
+    background-color: var(--color-surface-hover);
   }
 
   .project-info {
