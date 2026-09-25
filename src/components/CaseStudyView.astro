@@ -2,6 +2,7 @@
 import BackButton from './BackButton.astro';
 import ImageBlock from './ImageBlock.astro';
 import ImageGallery from './ImageGallery.astro';
+import DualMediaBlock from './DualMediaBlock.astro';
 import ProjectDetails from './ProjectDetails.astro';
 import SplitSection from './SplitSection.astro';
 import Divider from './Divider.astro';
@@ -35,7 +36,11 @@ const projectHrefPrefix = homeHref;
   </div>
 </section>
 
-<ImageBlock src={copy.heroImage1} alt={copy.title} accent={copy.accent} />
+{copy.heroImage1Dual ? (
+  <DualMediaBlock left={copy.heroImage1Dual.left} right={copy.heroImage1Dual.right} alt={copy.title} accent={copy.accent} />
+) : (
+  <ImageBlock src={copy.heroImage1} aspectRatio={copy.heroImage1AspectRatio} alt={copy.title} accent={copy.accent} />
+)}
 
 <ProjectDetails details={copy.details} />
 
@@ -62,7 +67,9 @@ const projectHrefPrefix = homeHref;
   <p>{copy.insight1.body}</p>
 </SplitSection>
 
-{copy.gallery ? (
+{copy.insight1Dual ? (
+  <DualMediaBlock left={copy.insight1Dual.left} right={copy.insight1Dual.right} alt={copy.insight1.title} accent={copy.accent} />
+) : copy.gallery ? (
   <ImageGallery images={copy.gallery} alt={copy.insight1.title} accent={copy.accent} />
 ) : copy.insight1Image ? (
   <ImageBlock
@@ -78,7 +85,11 @@ const projectHrefPrefix = homeHref;
   <p>{copy.insight2.body}</p>
 </SplitSection>
 
-<ImageBlock src={copy.heroImage3} alt={copy.insight2.title} accent={copy.accent} />
+{copy.heroImage3Dual ? (
+  <DualMediaBlock left={copy.heroImage3Dual.left} right={copy.heroImage3Dual.right} alt={copy.insight2.title} accent={copy.accent} />
+) : (
+  <ImageBlock src={copy.heroImage3} alt={copy.insight2.title} accent={copy.accent} />
+)}
 
 <SplitSection label={copy.insight3.label}>
   <h3>{copy.insight3.title}</h3>
@@ -90,6 +101,7 @@ const projectHrefPrefix = homeHref;
   video={copy.heroVideo4}
   videoWebm={copy.heroVideo4Webm}
   poster={copy.heroVideo4Poster}
+  aspectRatio={copy.heroImage4AspectRatio}
   alt={copy.insight3.title}
   accent={copy.accent}
 />

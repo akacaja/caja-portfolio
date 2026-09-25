@@ -1,0 +1,90 @@
+---
+interface MediaItem {
+  src?: string;
+  video?: string;
+  videoWebm?: string;
+  poster?: string;
+}
+
+interface Props {
+  left: MediaItem;
+  right: MediaItem;
+  alt?: string;
+  accent?: 'blue' | 'green' | 'sage';
+}
+
+const { left, right, alt = '', accent = 'blue' } = Astro.props;
+const items = [left, right];
+---
+
+<div class="dual-media">
+  {items.map((item) => (
+    item.video ? (
+      <video poster={item.poster} autoplay loop muted playsinline preload="metadata" aria-label={alt}>
+        {item.videoWebm && <source src={item.videoWebm} type="video/webm" />}
+        <source src={item.video} type="video/mp4" />
+      </video>
+    ) : item.src ? (
+      <img src={item.src} alt={alt} loading="lazy" />
+    ) : (
+      <div class:list={['placeholder', `placeholder--${accent}`]} aria-hidden="true"></div>
+    )
+  ))}
+</div>
+
+<style>
+  .dual-media {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+    padding: 40px var(--page-padding);
+    width: 100%;
+  }
+
+  .dual-media img,
+  .dual-media video,
+  .dual-media .placeholder {
+    width: 234px;
+    max-width: 30%;
+    aspect-ratio: 234 / 520;
+    border-radius: var(--radius-md);
+    object-fit: cover;
+    display: block;
+  }
+
+  .placeholder--blue {
+    background: var(--color-accent-blue);
+  }
+  .placeholder--green {
+    background: var(--color-accent-green);
+  }
+  .placeholder--sage {
+    background: var(--color-accent-sage);
+  }
+
+  @media (max-width: 768px) {
+    .dual-media {
+      gap: 24px;
+      padding: 24px var(--page-padding);
+    }
+    .dual-media img,
+    .dual-media video,
+    .dual-media .placeholder {
+      max-width: 40%;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .dual-media {
+      flex-direction: column;
+      gap: 16px;
+    }
+    .dual-media img,
+    .dual-media video,
+    .dual-media .placeholder {
+      width: 60%;
+      max-width: 60%;
+    }
+  }
+</style>

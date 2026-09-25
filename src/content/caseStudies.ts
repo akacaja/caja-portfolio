@@ -16,6 +16,18 @@ export interface ResultsCopy {
   items: string[];
 }
 
+export interface DualMediaItem {
+  src?: string;
+  video?: string;
+  videoWebm?: string;
+  poster?: string;
+}
+
+export interface DualMediaCopy {
+  left: DualMediaItem;
+  right: DualMediaItem;
+}
+
 export interface CaseStudyCopy {
   lang: Lang;
   backLabel: string;
@@ -26,6 +38,8 @@ export interface CaseStudyCopy {
   summary: string;
   accent: 'blue' | 'green' | 'sage';
   heroImage1?: string;
+  heroImage1AspectRatio?: string;
+  heroImage1Dual?: DualMediaCopy;
   details: { label: string; value: string }[];
   problem: SplitSectionCopy;
   solution: SplitSectionCopy;
@@ -36,10 +50,13 @@ export interface CaseStudyCopy {
   gallery?: string[];
   insight1Image?: string;
   insight1ImageAspectRatio?: string;
+  insight1Dual?: DualMediaCopy;
   insight2: InsightCopy;
   heroImage3?: string;
+  heroImage3Dual?: DualMediaCopy;
   insight3: InsightCopy;
   heroImage4?: string;
+  heroImage4AspectRatio?: string;
   heroVideo4?: string;
   heroVideo4Webm?: string;
   heroVideo4Poster?: string;
@@ -339,6 +356,181 @@ export const drip: Record<Lang, CaseStudyCopy> = {
     },
     moreProjectsTitle: 'Outros projetos',
     relatedProjects: [home.pt.projects[0], home.pt.projects[2]],
+    contactTitle: home.pt.contactTitle,
+    contact: home.pt.contact,
+    footerRole: home.pt.footerRole,
+    footerClockSuffix: home.pt.footerClockSuffix,
+  },
+};
+
+export const documents: Record<Lang, CaseStudyCopy> = {
+  en: {
+    lang: 'en',
+    backLabel: 'Back to Index',
+    title: "Establishing the navigation pattern for self-service tabs in Questrade's app",
+    client: 'Questrade',
+    category: 'Fintech',
+    year: '2025',
+    summary:
+      "QuestMobile is Questrade's official investment app, the largest independent online brokerage in Canada. In this project, I created the navigation pattern for the app's self-service tabs, starting with the Documents tab, which includes document uploads, form search, statements, and tax slips. The delivery was phased into two releases to ensure tax documents were available in time for the Canadian tax season.",
+    accent: 'sage',
+    heroImage1: '/assets/documents/featured-image.png',
+    heroImage1AspectRatio: '3576 / 1512',
+    details: [
+      { label: 'My role', value: 'Product Designer' },
+      { label: 'Scope', value: 'From discovery to delivery, end to end' },
+      { label: 'Team', value: 'Product Managers and developers' },
+    ],
+    problem: {
+      label: 'The problem',
+      body: 'With tax season approaching, Questrade needed to make tax slips and statements accessible in the app. Until then, these features only existed on the web portal, along with other self-service areas that also needed to be adapted to mobile. Since all of them were built around the desktop experience, the project became an opportunity to create a single navigation pattern, starting with the tab with the highest seasonal impact.',
+    },
+    solution: {
+      label: 'The solution',
+      body: 'By analyzing the self-service tabs, I identified that they all shared the same content nature, which opened the opportunity to create a replicable navigation pattern instead of a custom solution for each tab. This pattern was born in Documents, where I designed the statements and tax slips experience for on-the-go use. Since tax season imposed a real deadline, I phased the delivery into two releases, prioritizing tax slips in phase one to ensure they were in the app on time.',
+    },
+    impact: {
+      label: 'The impact',
+      body: 'The navigation pattern created in Documents was adopted by the other self-service tabs in the app, becoming the reference for future implementations. Statements and tax slips became accessible in the app during peak annual demand, with an experience designed for mobile use. The phased delivery in two releases ensured tax documents were available without compromising the tax season deadline.',
+    },
+    keyInsightsSummary: {
+      label: 'Three key insights',
+      body: '01. Different content organized by the same logic, in a structure built to scale from day one 02. Each phase needed to deliver a complete experience, not an incomplete version of the next 03. When experience speaks louder than consistency',
+    },
+    heroImage2: '/assets/documents/project-snapshot.png',
+    insight1: {
+      label: 'Insight 01',
+      title: 'Different content organized by the same logic, in a structure built to scale from day one',
+      body: 'The Documents tab belongs to a family of self-service pages in the app, built for tasks like document uploads, statement lookups, and form search. By analyzing these pages, I noticed they held different content but shared the same nature, which opened the opportunity to standardize instead of creating a custom structure for each tab. I classified the content into three replicable categories: primary actions, snapshots, and history. The hierarchy between them combined each page\'s core job with Analytics data from the web portal, prioritizing blocking actions at the top and calibrating the rest by access frequency. The structure was born in Documents and was ready to be replicated across the remaining tabs.',
+    },
+    insight1Dual: {
+      left: { src: '/assets/documents/page-structure.png' },
+      right: {
+        video: '/assets/documents/pages.mp4',
+        videoWebm: '/assets/documents/pages.webm',
+        poster: '/assets/documents/pages-poster.jpg',
+      },
+    },
+    insight2: {
+      label: 'Insight 02',
+      title: 'Each phase needed to deliver a complete experience, not an incomplete version of the next',
+      body: 'The project was to bring the full documents area to the app, but with tax season approaching, I decided to launch tax slips first, since they were the documents that virtually the entire user base would need to access in the following weeks. In phase 2, launched a month later, the Documents page started bringing together other document types, which needed to be accommodated without breaking the flow users had already learned.',
+    },
+    heroImage3Dual: {
+      left: {
+        video: '/assets/documents/phase-1.mp4',
+        videoWebm: '/assets/documents/phase-1.webm',
+        poster: '/assets/documents/phase-1-poster.jpg',
+      },
+      right: {
+        video: '/assets/documents/phase-2.mp4',
+        videoWebm: '/assets/documents/phase-2.webm',
+        poster: '/assets/documents/phase-2-poster.jpg',
+      },
+    },
+    insight3: {
+      label: 'Insight 03',
+      title: 'When experience speaks louder than consistency',
+      body: 'Consistency was a project value, but it couldn\'t come at the cost of real-world adequacy. On the web portal, statements and tax slips followed the same grouping logic by account. I treated the migration to the app as an opportunity to revisit that structure, wrote usage scenarios, and brought them to an investigation with the PO. We understood that tax slips are downloaded by account (because Canadian tax filing is done account by account), but the most common behavior for statements was searching for a specific month\'s document. Statements were then grouped by month, prioritizing usage efficiency even at the cost of consistency with the web portal.',
+    },
+    heroImage4: '/assets/documents/statements.png',
+    heroImage4AspectRatio: '3576 / 1512',
+    results: {
+      label: 'Results',
+      items: [
+        'Created a replicable navigation pattern for all self-service tabs.',
+        'Tax documents accessible in the app in time for peak annual demand.',
+        'Phased delivery in two releases, without compromising the Canadian tax season deadline.',
+      ],
+    },
+    moreProjectsTitle: 'More projects',
+    relatedProjects: [home.en.projects[0], home.en.projects[1]],
+    contactTitle: home.en.contactTitle,
+    contact: home.en.contact,
+    footerRole: home.en.footerRole,
+    footerClockSuffix: home.en.footerClockSuffix,
+  },
+  pt: {
+    lang: 'pt',
+    backLabel: 'Voltar para Início',
+    title: 'Estabelecendo o padrão de navegação para as abas de autoatendimento no app da Questrade',
+    client: 'Questrade',
+    category: 'Fintech',
+    year: '2025',
+    summary:
+      'O QuestMobile é o app oficial de investimentos da Questrade, a maior corretora online independente do Canadá. Nesse projeto, criei o padrão de navegação para as abas de autoatendimento do app, começando pela aba Documents, que inclui upload de documentos, busca de formulários, statements e tax slips. A entrega foi faseada em dois releases para garantir que os documentos fiscais estivessem disponíveis a tempo da temporada de impostos canadense.',
+    accent: 'sage',
+    heroImage1: '/assets/documents/featured-image.png',
+    heroImage1AspectRatio: '3576 / 1512',
+    details: [
+      { label: 'Meu papel', value: 'Product Designer' },
+      { label: 'Escopo', value: 'Da descoberta à entrega, ponta a ponta' },
+      { label: 'Time', value: 'Product Managers e desenvolvedores' },
+    ],
+    problem: {
+      label: 'O problema',
+      body: 'Com a temporada de impostos se aproximando, a Questrade precisava garantir que tax slips e statements estivessem acessíveis no app. Até então, essas funcionalidades existiam apenas no portal web, assim como outras áreas self-service que também precisariam ser adequadas à experiência mobile. Como todas partiam da experiência desktop, o projeto se tornou a oportunidade de criar um padrão de navegação único, começando pela aba com maior impacto sazonal.',
+    },
+    solution: {
+      label: 'A solução',
+      body: 'Ao analisar as abas self-service, identifiquei que todas compartilhavam a mesma natureza de conteúdo, o que abriu a oportunidade de criar um padrão de navegação replicável em vez de uma solução sob medida para cada aba. Esse padrão nasceu em Documents, onde desenhei a experiência de statements e tax slips pensada para uso on-the-go. Como a temporada de impostos impunha um prazo real, faseei a entrega em dois releases, priorizando tax slips na primeira fase para garantir que estivessem no app a tempo.',
+    },
+    impact: {
+      label: 'O impacto',
+      body: 'O padrão de navegação criado em Documents foi adotado pelas demais abas de autoatendimento do app, tornando-se a referência para futuras implementações. Statements e tax slips ficaram acessíveis no app durante o pico anual de demanda, com uma experiência desenhada para uso mobile. A entrega faseada em dois releases garantiu que os documentos fiscais estivessem disponíveis sem comprometer o prazo da temporada de impostos.',
+    },
+    keyInsightsSummary: {
+      label: 'Três insights principais',
+      body: '01. Conteúdos diferentes organizados pela mesma lógica em uma estrutura que nasce pronta para escalar 02. Cada fase precisava entregar uma experiência completa, não uma versão incompleta da próxima 03. Quando a experiência fala mais alto do que a consistência',
+    },
+    heroImage2: '/assets/documents/project-snapshot.png',
+    insight1: {
+      label: 'Insight 01',
+      title: 'Conteúdos diferentes organizados pela mesma lógica em uma estrutura que nasce pronta para escalar',
+      body: 'A aba Documents pertence a uma família de páginas self-service do app, voltadas a tarefas como upload de documentos, consulta de extratos e busca de formulários. Ao analisar essas páginas, percebi que reuniam conteúdos diferentes, mas com a mesma natureza, o que abriu a oportunidade de padronizar em vez de criar uma estrutura sob medida para cada aba. Classifiquei os conteúdos em três categorias replicáveis: ações principais, snapshots e históricos. A hierarquia entre elas combinou o job da página com dados de Analytics do portal web, priorizando ações bloqueantes no topo e calibrando o restante pela frequência de acesso. A estrutura nasceu em Documents e ficou pronta para ser replicada nas demais abas.',
+    },
+    insight1Dual: {
+      left: { src: '/assets/documents/page-structure.png' },
+      right: {
+        video: '/assets/documents/pages.mp4',
+        videoWebm: '/assets/documents/pages.webm',
+        poster: '/assets/documents/pages-poster.jpg',
+      },
+    },
+    insight2: {
+      label: 'Insight 02',
+      title: 'Cada fase precisava entregar uma experiência completa, não uma versão incompleta da próxima',
+      body: 'O projeto era levar a área de documentos completa para o app, mas com a tax season se aproximando, decidi lançar tax slips primeiro, por serem os documentos que praticamente toda a base precisaria acessar nas semanas seguintes. Na fase 2, lançada um mês depois, a página de Documents começou a reunir outros tipos de documento, que precisaram ser acomodados sem quebrar o fluxo que os usuários já tinham aprendido.',
+    },
+    heroImage3Dual: {
+      left: {
+        video: '/assets/documents/phase-1.mp4',
+        videoWebm: '/assets/documents/phase-1.webm',
+        poster: '/assets/documents/phase-1-poster.jpg',
+      },
+      right: {
+        video: '/assets/documents/phase-2.mp4',
+        videoWebm: '/assets/documents/phase-2.webm',
+        poster: '/assets/documents/phase-2-poster.jpg',
+      },
+    },
+    insight3: {
+      label: 'Insight 03',
+      title: 'Quando a experiência fala mais alto do que a consistência',
+      body: 'Consistência era um valor do projeto, mas não podia custar a adequação ao uso real. No portal web, statements e tax slips seguiam a mesma lógica de agrupamento por conta. Tratei a migração para o app como uma oportunidade de revisar essa estrutura, escrevi cenários de uso e levei para uma investigação com o PO. Entendemos que tax slips são baixados por conta (porque a declaração no Canadá é feita conta a conta), mas o comportamento mais comum para statements era buscar o documento de um mês específico. Statements passaram a ser agrupados por mês, priorizando eficiência de uso mesmo com perda de consistência com o portal web.',
+    },
+    heroImage4: '/assets/documents/statements.png',
+    heroImage4AspectRatio: '3576 / 1512',
+    results: {
+      label: 'Resultados',
+      items: [
+        'Criação do padrão de navegação replicável para todas as abas self-service.',
+        'Documentos financeiros disponíveis no app a tempo do pico anual de demanda.',
+        'Entrega faseada em dois releases, sem comprometer a temporada de impostos canadense.',
+      ],
+    },
+    moreProjectsTitle: 'Outros projetos',
+    relatedProjects: [home.pt.projects[0], home.pt.projects[1]],
     contactTitle: home.pt.contactTitle,
     contact: home.pt.contact,
     footerRole: home.pt.footerRole,

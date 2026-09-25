@@ -1,0 +1,19 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CaseStudyView from '../components/CaseStudyView.astro';
+import { documents } from '../content/caseStudies';
+
+const copy = documents.en;
+---
+
+<BaseLayout
+  lang="en"
+  title={`${copy.title} — Carolina Cajazeira`}
+  description={copy.summary}
+  enHref="/documents"
+  ptHref="/pt/documents"
+  footerRole={copy.footerRole}
+  footerClockSuffix={copy.footerClockSuffix}
+>
+  <CaseStudyView copy={copy} />
+</BaseLayout>
