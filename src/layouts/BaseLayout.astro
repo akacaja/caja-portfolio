@@ -1,0 +1,50 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/tokens.css';
+
+interface Props {
+  lang: 'en' | 'pt';
+  title: string;
+  description: string;
+  langLabel: string;
+  otherLangLabel: string;
+  otherLangHref: string;
+  footerRole: string;
+  footerClockSuffix: string;
+}
+
+const { lang, title, description, langLabel, otherLangLabel, otherLangHref, footerRole, footerClockSuffix } = Astro.props;
+const homeHref = lang === 'en' ? '/' : '/pt/';
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Patua+One&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <Header lang={lang} langLabel={langLabel} otherLangLabel={otherLangLabel} otherLangHref={otherLangHref} homeHref={homeHref} />
+    <main>
+      <slot />
+    </main>
+    <Footer role={footerRole} clockSuffix={footerClockSuffix} />
+  </body>
+</html>
+
+<style is:global>
+  main {
+    display: flex;
+    flex-direction: column;
+  }
+</style>

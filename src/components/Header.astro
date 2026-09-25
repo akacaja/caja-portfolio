@@ -1,0 +1,84 @@
+---
+interface Props {
+  lang: 'en' | 'pt';
+  langLabel: string;
+  otherLangLabel: string;
+  otherLangHref: string;
+  homeHref: string;
+}
+const { langLabel, otherLangLabel, otherLangHref, homeHref } = Astro.props;
+---
+
+<header class="header">
+  <a class="logo" href={homeHref} aria-label="Carolina Cajazeira — home">CAJÁ</a>
+  <div class="lang-toggle" role="group" aria-label="Language">
+    <span class="lang-current" aria-current="true">{langLabel}</span>
+    <span class="lang-sep" aria-hidden="true"></span>
+    <a class="lang-other" href={otherLangHref}>{otherLangLabel}</a>
+  </div>
+</header>
+
+<style>
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px var(--page-padding);
+    background: var(--color-bg);
+  }
+
+  .logo {
+    font-family: var(--font-display);
+    font-size: 18px;
+    letter-spacing: 0.08em;
+    color: var(--color-text-strong);
+  }
+
+  .lang-toggle {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    padding: 4px;
+    border-radius: var(--radius-pill);
+  }
+
+  .lang-current,
+  .lang-other {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: var(--radius-pill);
+    font-family: var(--font-body);
+    font-size: 16px;
+  }
+
+  .lang-current {
+    font-weight: 700;
+    color: var(--color-text-strong);
+  }
+
+  .lang-other {
+    font-weight: 400;
+    color: var(--color-text-muted);
+    transition: color 0.15s ease, background 0.15s ease;
+  }
+
+  .lang-other:hover {
+    color: var(--color-text-strong);
+    background: var(--color-surface);
+  }
+
+  .lang-sep {
+    width: 1px;
+    height: 12px;
+    background: var(--color-border);
+  }
+
+  @media (max-width: 640px) {
+    .header {
+      padding: 12px var(--page-padding);
+    }
+  }
+</style>

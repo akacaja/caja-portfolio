@@ -1,0 +1,199 @@
+---
+import Divider from './Divider.astro';
+import SectionHeader from './SectionHeader.astro';
+import ProjectCard from './ProjectCard.astro';
+import ArticleCard from './ArticleCard.astro';
+import ContactButton from './ContactButton.astro';
+import type { HomeCopy } from '../content/copy';
+
+interface Props {
+  copy: HomeCopy;
+}
+const { copy } = Astro.props;
+const projectHrefPrefix = copy.lang === 'en' ? '/' : '/pt/';
+---
+
+<section class="headline">
+  <div class="avatar">
+    <div class="avatar-frame" aria-hidden="true"></div>
+  </div>
+  <div class="intro">
+    <div class="name-block">
+      <h1>{copy.name}</h1>
+      <p class="tagline">{copy.tagline}</p>
+    </div>
+    <p class="bio">{copy.bio}</p>
+  </div>
+</section>
+
+<section class="projects">
+  <Divider />
+  <SectionHeader title={copy.recentWorkTitle} />
+  <div class="project-list">
+    {copy.projects.map((project, i) => (
+      <>
+        <ProjectCard project={project} href={`${projectHrefPrefix}${project.slug}`} />
+        {i < copy.projects.length - 1 && <Divider />}
+      </>
+    ))}
+  </div>
+</section>
+
+<section class="articles">
+  <Divider />
+  <SectionHeader title={copy.articlesTitle} />
+  <div class="article-list">
+    {copy.articles.map((article) => (
+      <ArticleCard article={article} />
+    ))}
+  </div>
+</section>
+
+<section class="contact">
+  <Divider />
+  <div class="contact-row">
+    <h2>{copy.contactTitle}</h2>
+    <div class="contact-items">
+      {copy.contact.map((c) => (
+        <ContactButton label={c.label} href={c.href} icon={c.icon} />
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  section {
+    width: 100%;
+    padding-left: var(--page-padding);
+    padding-right: var(--page-padding);
+  }
+
+  .headline {
+    display: flex;
+    gap: 48px;
+    justify-content: center;
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+
+  .avatar-frame {
+    width: 152px;
+    height: 226px;
+    border-radius: 40px;
+    border: 8px solid var(--color-surface);
+    box-shadow: 0 0 58px 8px rgba(0, 0, 0, 0.05);
+    background: linear-gradient(160deg, var(--color-accent-blue), var(--color-accent-sage));
+  }
+
+  .intro {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    max-width: 720px;
+  }
+
+  .name-block {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  h1 {
+    margin: 0;
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: var(--text-name);
+    line-height: 1.3;
+    color: var(--color-text);
+  }
+
+  .tagline {
+    margin: 0;
+    font-size: var(--text-tagline);
+    color: var(--color-text-muted);
+  }
+
+  .bio {
+    margin: 0;
+    font-size: var(--text-bio);
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+    color: var(--color-text);
+  }
+
+  .projects,
+  .articles {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding-bottom: 64px;
+  }
+
+  .project-list,
+  .article-list {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .contact {
+    display: flex;
+    flex-direction: column;
+    gap: 56px;
+    padding-bottom: 64px;
+  }
+
+  .contact-row {
+    display: flex;
+    gap: 48px;
+    align-items: center;
+    width: 100%;
+  }
+
+  .contact-row h2 {
+    margin: 0;
+    flex-shrink: 0;
+    width: 220px;
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: var(--text-section-title);
+    line-height: 1.5;
+    color: var(--color-text);
+  }
+
+  .contact-items {
+    display: flex;
+    flex: 1 1 0;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: 768px) {
+    .headline {
+      flex-direction: column;
+      align-items: flex-start;
+      padding-top: 48px;
+      padding-bottom: 48px;
+    }
+
+    .contact-row {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 24px;
+    }
+
+    .contact-row h2 {
+      width: auto;
+    }
+
+    .contact-items {
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .contact-items {
+      flex-direction: column;
+    }
+  }
+</style>

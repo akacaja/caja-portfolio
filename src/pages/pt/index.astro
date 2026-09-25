@@ -1,0 +1,20 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import HomeView from '../../components/HomeView.astro';
+import { home } from '../../content/copy';
+
+const copy = home.pt;
+---
+
+<BaseLayout
+  lang="pt"
+  title="Carolina Cajazeira — Product Designer"
+  description={copy.bio}
+  langLabel={copy.langLabel}
+  otherLangLabel={copy.otherLangLabel}
+  otherLangHref={copy.otherLangHref}
+  footerRole={copy.footerRole}
+  footerClockSuffix={copy.footerClockSuffix}
+>
+  <HomeView copy={copy} />
+</BaseLayout>

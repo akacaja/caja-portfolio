@@ -1,0 +1,56 @@
+---
+interface Props {
+  role: string;
+  clockSuffix: string;
+}
+const { role, clockSuffix } = Astro.props;
+const year = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <p class="footer-labels">
+    <span>© {year} Carolina Cajazeira</span>
+    <span aria-hidden="true">・</span>
+    <span>{role}</span>
+    <span aria-hidden="true">・</span>
+    <span class="clock" data-clock-suffix={clockSuffix}>—:— {clockSuffix}</span>
+  </p>
+</footer>
+
+<script>
+  function updateClocks() {
+    const clocks = document.querySelectorAll<HTMLElement>('.clock');
+    if (!clocks.length) return;
+    const formatter = new Intl.DateTimeFormat('en-GB', {
+      timeZone: 'America/Sao_Paulo',
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: false,
+    });
+    const time = formatter.format(new Date());
+    clocks.forEach((el) => {
+      const suffix = el.dataset.clockSuffix ?? '';
+      el.textContent = `${time} ${suffix}`;
+    });
+  }
+  updateClocks();
+  setInterval(updateClocks, 15000);
+</script>
+
+<style>
+  .footer {
+    display: flex;
+    align-items: center;
+    padding: 16px var(--page-padding);
+  }
+
+  .footer-labels {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+    margin: 0;
+    font-size: var(--text-footer);
+    color: var(--color-text);
+  }
+</style>
