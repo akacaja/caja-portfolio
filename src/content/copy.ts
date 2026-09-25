@@ -12,6 +12,7 @@ export interface ProjectCopy {
 }
 
 export interface ArticleCopy {
+  slug: string;
   readTime: string;
   date: string;
   tags: string;
@@ -86,6 +87,7 @@ export const home: Record<Lang, HomeCopy> = {
     articlesTitle: 'Articles',
     articles: [
       {
+        slug: 'design-systems-claude',
         readTime: '5 min read',
         date: 'May 12, 2026',
         tags: 'ai, design, claude',
@@ -142,6 +144,7 @@ export const home: Record<Lang, HomeCopy> = {
     articlesTitle: 'Artigos',
     articles: [
       {
+        slug: 'design-systems-claude',
         readTime: '5 min de leitura',
         date: '12 mai 2026',
         tags: 'ai, design, claude',

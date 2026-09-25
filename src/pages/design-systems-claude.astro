@@ -1,0 +1,19 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ArticleView from '../components/ArticleView.astro';
+import { designSystemsClaude } from '../content/articles';
+
+const copy = designSystemsClaude.en;
+---
+
+<BaseLayout
+  lang="en"
+  title={`${copy.title} — Carolina Cajazeira`}
+  description={copy.subtitle}
+  enHref="/design-systems-claude"
+  ptHref="/pt/design-systems-claude"
+  footerRole={copy.footerRole}
+  footerClockSuffix={copy.footerClockSuffix}
+>
+  <ArticleView copy={copy} />
+</BaseLayout>

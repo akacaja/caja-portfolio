@@ -44,7 +44,7 @@ const projectHrefPrefix = copy.lang === 'en' ? '/' : '/pt/';
   <SectionHeader title={copy.articlesTitle} />
   <div class="article-list">
     {copy.articles.map((article) => (
-      <ArticleCard article={article} />
+      <ArticleCard article={article} href={`${projectHrefPrefix}${article.slug}`} />
     ))}
   </div>
 </section>
