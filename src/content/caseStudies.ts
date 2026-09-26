@@ -5,6 +5,10 @@ export interface SplitSectionCopy {
   body: string;
 }
 
+export interface KeyInsightsCopy {
+  label: string;
+}
+
 export interface InsightCopy {
   label: string;
   title: string;
@@ -44,7 +48,7 @@ export interface CaseStudyCopy {
   problem: SplitSectionCopy;
   solution: SplitSectionCopy;
   impact: SplitSectionCopy;
-  keyInsightsSummary: SplitSectionCopy;
+  keyInsightsSummary: KeyInsightsCopy;
   heroImage2?: string;
   insight1: InsightCopy;
   gallery?: string[];
@@ -103,7 +107,6 @@ export const mapbiomas: Record<Lang, CaseStudyCopy> = {
     },
     keyInsightsSummary: {
       label: 'Three key insights',
-      body: '01. Fewer decisions per screen, more clarity for a non-technical audience 02. Real-time feedback that builds credibility at every step 03. A scope constraint that led to a simpler interface to use and maintain',
     },
     heroImage2: '/assets/mapbiomas/ui-overview.png',
     insight1: {
@@ -178,7 +181,6 @@ export const mapbiomas: Record<Lang, CaseStudyCopy> = {
     },
     keyInsightsSummary: {
       label: 'Três insights principais',
-      body: '01. Menos decisões por tela e mais clareza para um público não-técnico 02. Feedback em tempo real, que garante credibilidade a cada passo 03. Uma restrição de escopo levou a uma interface mais simples de usar e manter',
     },
     heroImage2: '/assets/mapbiomas/ui-overview.png',
     insight1: {
@@ -253,7 +255,6 @@ export const drip: Record<Lang, CaseStudyCopy> = {
     },
     keyInsightsSummary: {
       label: 'Three key insights',
-      body: '01. From operational bottleneck to competitive advantage, the research that redefined the project scope 02. The ideal experience as the starting point for the new API 03. A technical limitation can work in favor of the experience when approached strategically',
     },
     heroImage2: '/assets/drip/project-snapshot.png',
     insight1: {
@@ -322,7 +323,6 @@ export const drip: Record<Lang, CaseStudyCopy> = {
     },
     keyInsightsSummary: {
       label: 'Três insights principais',
-      body: '01. Do gargalo operacional ao diferencial competitivo: a pesquisa que redefiniu o escopo do projeto 02. A experiência ideal como ponto de partida para a nova API 03. Uma limitação técnica pode jogar a favor da experiência quando olhada estrategicamente',
     },
     heroImage2: '/assets/drip/project-snapshot.png',
     insight1: {
@@ -395,7 +395,6 @@ export const documents: Record<Lang, CaseStudyCopy> = {
     },
     keyInsightsSummary: {
       label: 'Three key insights',
-      body: '01. Different content organized by the same logic, in a structure built to scale from day one 02. Each phase needed to deliver a complete experience, not an incomplete version of the next 03. When experience speaks louder than consistency',
     },
     heroImage2: '/assets/documents/project-snapshot.png',
     insight1: {
@@ -481,7 +480,6 @@ export const documents: Record<Lang, CaseStudyCopy> = {
     },
     keyInsightsSummary: {
       label: 'Três insights principais',
-      body: '01. Conteúdos diferentes organizados pela mesma lógica em uma estrutura que nasce pronta para escalar 02. Cada fase precisava entregar uma experiência completa, não uma versão incompleta da próxima 03. Quando a experiência fala mais alto do que a consistência',
     },
     heroImage2: '/assets/documents/project-snapshot.png',
     insight1: {

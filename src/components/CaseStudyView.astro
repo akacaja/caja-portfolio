@@ -57,12 +57,16 @@ const projectHrefPrefix = homeHref;
 </SplitSection>
 
 <SplitSection label={copy.keyInsightsSummary.label}>
-  <p>{copy.keyInsightsSummary.body}</p>
+  <ul class="insights-list">
+    <li><a href="#insight-1">01. {copy.insight1.title}</a></li>
+    <li><a href="#insight-2">02. {copy.insight2.title}</a></li>
+    <li><a href="#insight-3">03. {copy.insight3.title}</a></li>
+  </ul>
 </SplitSection>
 
 <ImageBlock src={copy.heroImage2} alt={copy.insight1.title} accent={copy.accent} />
 
-<SplitSection label={copy.insight1.label} divider={false}>
+<SplitSection id="insight-1" label={copy.insight1.label} divider={false}>
   <h3>{copy.insight1.title}</h3>
   <p>{copy.insight1.body}</p>
 </SplitSection>
@@ -80,7 +84,7 @@ const projectHrefPrefix = homeHref;
   />
 ) : null}
 
-<SplitSection label={copy.insight2.label}>
+<SplitSection id="insight-2" label={copy.insight2.label}>
   <h3>{copy.insight2.title}</h3>
   <p>{copy.insight2.body}</p>
 </SplitSection>
@@ -91,7 +95,7 @@ const projectHrefPrefix = homeHref;
   <ImageBlock src={copy.heroImage3} alt={copy.insight2.title} accent={copy.accent} />
 )}
 
-<SplitSection label={copy.insight3.label}>
+<SplitSection id="insight-3" label={copy.insight3.label}>
   <h3>{copy.insight3.title}</h3>
   <p>{copy.insight3.body}</p>
 </SplitSection>
@@ -140,6 +144,20 @@ const projectHrefPrefix = homeHref;
     width: 100%;
     padding-left: var(--page-padding);
     padding-right: var(--page-padding);
+  }
+
+  .insights-list :global(a) {
+    color: inherit;
+    text-decoration-line: underline;
+    text-decoration-color: transparent;
+    text-underline-offset: 3px;
+    transition: text-decoration-color 0.15s ease, color 0.15s ease;
+  }
+
+  .insights-list :global(a:hover),
+  .insights-list :global(a:focus-visible) {
+    color: var(--color-text-strong);
+    text-decoration-color: currentColor;
   }
 
   .headline {
